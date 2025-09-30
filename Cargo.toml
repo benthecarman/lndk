@@ -36,7 +36,7 @@ tokio = { version = "1.25.0", features = ["rt", "rt-multi-thread", "signal", "te
 tonic = { version = "0.14.2", features = ["tls-ring", "transport" ] }
 tonic-prost = "0.14.2"
 tonic-types = "0.14.2"
-tonic_lnd = { git = "https://github.com/lndk-org/tonic_lnd", rev="f89f49aadc439b37d65947cc454eecffdc8c35e0", package="lndk-tonic-lnd", features = ["lightningrpc", "routerrpc", "versionrpc"] }
+tonic_lnd = { git = "https://github.com/lndk-org/tonic_lnd", rev="65734cf505d69bb679897134ed83c0e19a38a60d", package="lndk-tonic-lnd", features = ["lightningrpc", "routerrpc", "versionrpc"] }
 hex = "0.4.3"
 configure_me = "0.4.0"
 bytes = "1.4.0"
