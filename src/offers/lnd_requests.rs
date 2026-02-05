@@ -195,10 +195,14 @@ pub(super) async fn create_offer(
         create_reply_path_for_offer_creation(creator, node_id, message_context, entropy_source)
             .await?;
 
-    let mut builder =
+    let mut builder = if args.amount_msats == 0 {
+        OfferBuilder::deriving_signing_pubkey(node_id, expanded_key, nonce, &secp_ctx)
+            .chain(args.chain)
+    } else {
         OfferBuilder::deriving_signing_pubkey(node_id, expanded_key, nonce, &secp_ctx)
             .amount_msats(args.amount_msats)
-            .chain(args.chain);
+            .chain(args.chain)
+    };
 
     builder = if let Some(path) = paths.first() {
         builder.path(path.clone())
